@@ -160,8 +160,6 @@ pos_article<-ifelse(pos_neg_news$pos_num>pos_neg_news$neg_num,1,0)
 neg_article<-ifelse(pos_neg_news$pos_num<pos_neg_news$neg_num,1,0)
 pos_neg_news_num<-cbind(pos_neg_news,pos_article,neg_article)
 
-#이것도.....;;별로
-#Accuracy : 0.4987
 
 
 library(reshape2)
@@ -173,7 +171,7 @@ last_result<-merge(table_result,totals)
 ############################################
 ##########################################
 ##########################################
-#나이브 베이즈 실패!!!
+# 나이브 베이즈
 # # weightTfIdf 함수 말고 다른 여러 함수들이 제공되는데 관련 메뉴얼을 참고하길 바란다.
 # dtmat<-DocumentTermMatrix(docs.corp,control = list(tokenize=konlp_tokenizer,
 #                           wordLengths=c(5,Inf)))
@@ -210,10 +208,9 @@ last_result<-merge(table_result,totals)
 # library(caret)
 #
 # confusionMatrix(pred, testset$updown, dnn=c('predcited', 'actual'))
-# #Accuracy : 0.5714
-# #사용못하겠넹...ㅠ
+
 # ##############################################################
-# #나이브베이즈 안쓰고 직접 코딩해서 만든 것... 점수매기기
+# 나이브베이즈 안쓰고 직접 코딩해서 만든 것... 점수매기기
 # only_news$updown_numeric<-ifelse(only_news$updown=="up",1,-1)
 # test<-cbind(dtmat2,only_news$updown_numeric)
 # dtmat2<-as.matrix(dtmat2)
@@ -235,9 +232,7 @@ last_result<-merge(table_result,totals)
 # updown_news<-ifelse(only_news$updown_numeric==-1,"down","up")
 # total<-cbind(docs_score,pred,updown_news)[,2:3]
 # sum(total[,1]==total[,2])/nrow(total)
-# #0.5690608
-# #설명력이 안높음…
-# #이것도 사용못하겠네…ㅠ
+
 
 ############################################
 ##########################################
